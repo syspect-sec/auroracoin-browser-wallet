@@ -1,0 +1,12 @@
+{
+  "name": "auroracoinwallet",
+  "title": "Auroracoin Wallet",
+  "id": "jid1-sqPdj54n2PcVOQ",
+  "description": "Auroracoin wallet in the browser. Send and receive instantly on any web page.",
+  "author": "Andrew Toth, modified by Joseph Lee",
+  "license": "MIT",
+  "version": "1.1",
+  "permissions": {
+      "cross-domain-content": ["http://104.236.66.174", "https://blockchain.info/", "https://api.bitcoinaverage.com/"]
+  }
+}
