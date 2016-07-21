@@ -164,8 +164,10 @@
                 balance = result;
                 if (balanceListener) balanceListener(balance);
                 // Check Auroracoin-node for the current balance
-                util.get('http://104.236.66.174:3333/chain/Auroracoin/q/addressbalance/' + address).then(function (response) {
-                    balance = response * 100000000; //to match SATOSHIS
+                //util.get('http://104.236.66.174:3333/chain/Auroracoin/q/addressbalance/' + address).then(function (response) {
+                //    balance = response * 100000000; //to match SATOSHIS
+                util.get('http://insight.auroracoin.is/api/addr/' + address + '/balance').then(function (response) {
+                      balance = response ;
                     return preferences.setLastBalance(balance);
                 }).then(function () {
                     if (balanceListener) balanceListener(balance);
@@ -209,7 +211,9 @@
             var decryptedPrivateKey = ret.getDecryptedPrivateKey(password);
             if (decryptedPrivateKey) {
                 // Get all unspent outputs from Auroracoin-node to generate our inputs
-                util.getJSON('http://104.236.66.174:3333/unspent/' + address).then(function (json) {
+                //util.getJSON('http://104.236.66.174:3333/unspent/' + address).then(function (json) {
+                util.getJSON('http://insight.auroracoin.is/api/addr/' + address).then(function (json) {
+                    
                     var inputs = json.unspent_outputs,
                         selectedOuts = [],
                         //prepare a key to sign the tx
@@ -250,7 +254,9 @@
                         // Push the transaction to Auroracoin-node
                         var txdata = tx.toHex();
                         //window.alert(txdata);
-                        util.get('http://104.236.66.174:3333/pushtx/' + txdata).then(function (response) {
+                        //util.get('http://104.236.66.174:3333/pushtx/' + txdata).then(function (response) {
+                        util.get('http://insight.auroracoin.is/api/tx/send/' + txdata).then(function (response) {
+                            
                             success = response;
                             preferences.setLastBalance(balance - amount - fee);
                             if (success == 200) resolve();
