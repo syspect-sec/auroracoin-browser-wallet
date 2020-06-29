@@ -279,7 +279,7 @@
             <div class="modal-body">
                 <h5>Auroracoin Wallet v<span id="version">1.0</span></h5>
                 <p>Auroracoin Wallet is modified from Bitcoin Wallet developed by Andrew Toth in Toronto, Canada.<br/>
-                <a href="https://github.com/andrewtoth/BitcoinWallet">View the source on GitHub.</a>
+                <a href="https://github.com/SkateFish/auroracoin-browser-wallet">View the source on GitHub.</a>
                 </p>
                 <p>The following open source projects were used to develop Bitcoin Wallet:</p>
                 <p>
